@@ -4,6 +4,21 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+//'multiply' is the default export, due to 'export default',
+//{multiplyByTwo} is a named export.
+import multiply, {multiplyByTwo} from './multiply';
+/** Import everything from ./multiply into a namespace we named multiplyModule. */
+import * as multiplyModule from './multiply'; 
+/** Using alias for named exports, then we can use mBy2 in the code below. */
+//import multiply, {multiplyByTwo as mBy2} from './multiply';
+
+const a = 2;
+const b = 2;
+
+console.log(`${a} * ${b} = ${multiply(a,b)}`);
+//We can use the multiplyModule namespace to call the default property (multiply) in this way:
+console.log(`${a} * ${b} = ${multiplyModule.default(a,b)}`);
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
